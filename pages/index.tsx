@@ -9,7 +9,7 @@ const CvBuilder=()=>{
       <Head>
         <title>Resume Builder</title>
       </Head>
-      <div className="w-full h-screen bg-gradient-to-b from-cyan-700 to-teal-600">
+      <div className="w-full min-h-screen bg-gradient-to-b from-cyan-700 to-teal-600">
         <Header/>
         <Contents/>
       </div>
