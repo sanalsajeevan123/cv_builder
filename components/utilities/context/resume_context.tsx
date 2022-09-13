@@ -8,13 +8,15 @@ type MyProps = {
 
 type MyState={
     current_position:string
+    selected_template:number | undefined
 }
 
 class ResumeProvider extends Component<MyProps,MyState>{
     constructor(props:MyProps){
         super(props);
         this.state = {
-            current_position:'home'
+            current_position:'home',
+            selected_template:undefined
         }
     }
 
@@ -24,11 +26,18 @@ class ResumeProvider extends Component<MyProps,MyState>{
         })
     }
 
+    handleTemplateSelection=(id:number)=>{
+        this.setState({
+            selected_template:id
+        })
+    }
+
     render(){
         return(
             <ResumeContext.Provider value={{
                 ...this.state,
-                handleCurrenrPosition:this.handleCurrenrPosition
+                handleCurrenrPosition:this.handleCurrenrPosition,
+                handleTemplateSelection:this.handleTemplateSelection
             }}>
                 {this.props.children}
             </ResumeContext.Provider>
