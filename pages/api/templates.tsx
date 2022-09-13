@@ -10,5 +10,15 @@ var templats = [
 ]
 
 export default async(req:NextApiRequest,res:NextApiResponse)=>{
-  res.status(200).json(templats)
+  let filteredTemplates:any = []
+  if(req.query.id == undefined){
+    res.status(200).json(templats)
+  }else{
+    templats.some(temp => {
+      if(temp.id == +req.query.id){
+        filteredTemplates.push(temp)
+      }
+    })
+    res.status(200).json(filteredTemplates)
+  }
 }
