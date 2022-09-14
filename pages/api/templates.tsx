@@ -2,11 +2,21 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 var templats = [
-  {id:1,image:'template1.png'},
-  {id:2,image:'template2.png'},
-  {id:3,image:'template3.png'},
-  {id:4,image:'template4.png'},
-  {id:5,image:'template5.png'}
+  {id:1,image:'template1.png',form_structure:{
+    
+  }},
+  {id:2,image:'template2.png',form_structure:{
+    
+  }},
+  {id:3,image:'template3.png',form_structure:{
+    
+  }},
+  {id:4,image:'template4.png',form_structure:{
+    
+  }},
+  {id:5,image:'template5.png',form_structure:{
+    
+  }}
 ]
 
 export default async(req:NextApiRequest,res:NextApiResponse)=>{

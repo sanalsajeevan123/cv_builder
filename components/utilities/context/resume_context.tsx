@@ -21,9 +21,17 @@ class ResumeProvider extends Component<MyProps,MyState>{
     }
 
     handleCurrenrPosition=(position:string)=>{
-        this.setState({
-            current_position:position
-        })
+        if(['home','resume-templates'].includes(position)){
+            this.setState({
+                current_position:position,
+                selected_template:undefined
+
+            })
+        }else{
+            this.setState({
+                current_position:position
+            })
+        }
     }
 
     handleTemplateSelection=(id:number)=>{
@@ -37,7 +45,7 @@ class ResumeProvider extends Component<MyProps,MyState>{
             <ResumeContext.Provider value={{
                 ...this.state,
                 handleCurrenrPosition:this.handleCurrenrPosition,
-                handleTemplateSelection:this.handleTemplateSelection
+                handleTemplateSelection:this.handleTemplateSelection,
             }}>
                 {this.props.children}
             </ResumeContext.Provider>

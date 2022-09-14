@@ -23,7 +23,8 @@ const Templates=()=>{
                 </div>
             </div>
             <div className="w-full grid grid-cols-5 gap-20">
-                {templates.map((item:any,key:any)=>{
+                {templates.length > 0 ? 
+                templates.map((item:any)=>{
                     return(
                         <div onClick={()=>context.handleTemplateSelection(item.id)} className={`h-72 w-56 rounded-md bg-gradient-to-br hover:shadow-md ${context.selected_template === item.id ? `from-yellow-400 to-orange-600` : `from-fuchsia-600 to-indigo-500`} p-1 cursor-pointer`} key={item.id}>
                             <div className="h-full w-full rounded-md bg-slate-200 relative">
@@ -36,7 +37,22 @@ const Templates=()=>{
                             </div>
                         </div>
                     )
-                })}
+                }):
+                [...Array(5)].map((item:any,key:any)=>{
+                    return(
+                        <div className={`h-72 w-56 rounded-md bg-gradient-to-br hover:shadow-md from-fuchsia-600 to-indigo-500 p-1 cursor-pointer animate-pulse`} key={key}>
+                            <div className="h-full w-full rounded-md bg-slate-200 relative">
+                                <Image
+                                    src={`/template-loader-png.png`}
+                                    alt="resume"
+                                    layout="fill"
+                                    className="object-contain"
+                                />
+                            </div>
+                        </div>
+                    )
+                })
+                }
             </div>
             <div className="w-full flex items-center justify-center pt-10">
                 {context.selected_template !== undefined && <button onClick={()=>context.handleCurrenrPosition('resume-form')} className="py-2 px-4 rounded-md hover:bg-gradient-to-tl bg-gradient-to-br from-yellow-400 to-orange-600 text-white">Continue</button>}
