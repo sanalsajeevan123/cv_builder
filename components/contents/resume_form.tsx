@@ -4,12 +4,13 @@ import { ResumeContext } from "../utilities/context/resume_context"
 
 const Resume_form=()=>{
     const context = useContext(ResumeContext)
-    const [formStructure,setFormStructure] = useState([])
+    const [formStructure,setFormStructure] = useState({})
+    const [formData,setFormData] = useState({})
 
     useEffect(()=>{
         axios.get(`/api/templates?id=${context.selected_template}`).then((res:AxiosResponse)=>{
             if(res.statusText == 'OK'){
-                setFormStructure(res.data)
+                setFormStructure(res.data.formStructure)
             }
         })
     },[])
