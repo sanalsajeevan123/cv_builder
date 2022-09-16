@@ -33,7 +33,7 @@ var templats = [
           },
           objective:{
             type: "textarea",
-            label: "Objective",
+            label: "Carrer objective",
             description: "Short description about your goal for your job search",
             required: true,
             placeholder: "eg. To get an opportunity that allows me to showcase my skills and contribute to the company's growth."

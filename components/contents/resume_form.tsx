@@ -25,15 +25,16 @@ const Resume_form=()=>{
                 <div className="w-full">
                 {Object.values(formStructure).length > 0 && Object.entries(formStructure).map((section:any,key:any)=>{
                     return(
-                        <div className="border w-full flex px-3" key={key}>
-                            <div className="w-4/12 space-y-1 border-r py-4">
+                        <div className="border w-full sm:flex sm:px-3" key={key}>
+                            <div className="sm:w-4/12 w-full space-y-1 sm:border-r sm:py-4 py-2">
                                 <h1 className="text-lg font-bold">{section[1].section_name}</h1>
                                 <p className="text-xs text-slate-200">{section[1].description}</p>
                             </div>
-                            <div className="w-8/12 space-y-2 py-4">
+                            <div className="sm:w-8/12 w-full space-y-4 py-4">
                                 {Object.entries(section[1].fields).map((field:any,fieldKey:any)=>{
                                     return(
                                         <Generate
+                                            key={fieldKey}
                                             fieldName={field[0]}
                                             field={field[1]}
                                         />
